@@ -29,7 +29,32 @@ class _Exit_ScreenState extends State<Exit_Screen> {
               setState(() {
                 myvalue = val;
                 if (val == true) {
-                  exit(0);
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        content: SizedBox(
+                          width: 10,
+                          height: 50,
+                          child: Center(
+                            child: Text("Are you Sure You Want to Leave ? "),
+                          ),
+                        ),
+                        actions: [
+                          ElevatedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Yes, I am sure",
+                                style: TextStyle(fontFamily: "Silkscreen"),
+                              )),
+                          ElevatedButton(
+                              onPressed: () {},
+                              child: Text("No, I change my mind",
+                                  style: TextStyle(fontFamily: "Silkscreen")))
+                        ],
+                      );
+                    },
+                  );
                 }
               });
             },
